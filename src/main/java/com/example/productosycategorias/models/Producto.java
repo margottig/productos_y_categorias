@@ -2,7 +2,6 @@ package com.example.productosycategorias.models;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Locale.Category;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,6 +15,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.PostPersist;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "products")
@@ -23,8 +24,12 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message="Por favor ingresa el nombre del producto")
 	private String name;
 	private String description;
+	
+	@Min(value = 1, message="Por favor agrega el valor del producto" )
 	private float price;
 	@Column(updatable = false)
 	private Date createdAt;

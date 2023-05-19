@@ -24,9 +24,9 @@
 
 	<h1>New Product</h1>
 	<form:form action="/products/new" method="post" modelAttribute="producto">
-			<form:errors class="text-danger" path="name" />
 			<div class="form-group">
-		        <form:label path="name">Name</form:label>
+		        <form:label path="name">Name</form:label><br>
+				<form:errors class="text-danger" path="name" />
 		        <form:input class="form-control" path="name"/>
 		    </div>
 		    <div class="form-group">
@@ -34,8 +34,9 @@
 		        <form:input class="form-control" path="description"/>
 		    </div>
 		    <div class="form-group">
-		        <form:label path="price">Price</form:label>
-		        <form:input class="form-control" path="price"/>
+		        <form:label path="price">Price</form:label><br>
+		    	<form:errors class="text-danger" path="price" />
+		        <form:input type="number" class="form-control" path="price"/>
 		    </div>
 		    <button>Agregar nuevo producto</button>
 		</form:form>
