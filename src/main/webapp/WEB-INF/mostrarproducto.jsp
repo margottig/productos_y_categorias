@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>TITULO AQUI</title>
+<title>Tu producto</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main.css">
 <!-- change to match your file/naming structure -->
@@ -21,28 +21,30 @@
 <!-- change to match your file/naming structure -->
 </head>
 <body>
-	<h1>Productos y Categorias</h1>
-	<a href="/products/new"> Agrega un producto </a> |
-	<a href="/categories/new"> Agrega una categoria </a>
+
+	<a href="/"> Volver </a>
+	<h1>${producto.name }</h1>
+
 	<hr>
 	<div class="container row">
 		<div class="col-6">
-			<h2>Tus productos son:</h2>
-			<c:forEach items="${productos}" var="producto">
-				<li><a href="/products/${producto.id }"> ${producto.name }</a></li>
+			<h2>Categorias</h2>
+			<c:forEach items="${producto.categories}" var="categoria">
+				<li>${categoria.name }</li>
 			</c:forEach>
 		</div>
 		<div class="col-6">
-			<h2>Tus categorias son:</h2>
-			<c:forEach items="${categorias}" var="categoria">
-				<li><a href="/categories/${categoria.id }"> ${categoria.name }</a></li>
-			</c:forEach>
-		</div>
-
-
-	</div>
-
-
-
+			<h2>Add Category:</h2>
+			<form:form action="/aso/${producto.id }" method="post"
+				modelAttribute="asociacion">
+				<form:input type="hidden" path="product" value="${producto.id }" />
+				<form:select class="form-control" path="category">
+					<c:forEach items="${categorias}" var="categoria">
+						<form:option value="${categoria.id} "> ${categoria.name}  
+									</form:option>
+					</c:forEach>
+				</form:select>
+				<button>Agregar</button>
+			</form:form>
 </body>
 </html>

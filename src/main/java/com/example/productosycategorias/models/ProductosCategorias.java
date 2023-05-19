@@ -36,46 +36,65 @@ public class ProductosCategorias {
 	    public ProductosCategorias() {
 	        
 	    }
+	
 
 		public Long getId() {
 			return id;
 		}
 
+
 		public void setId(Long id) {
 			this.id = id;
 		}
+
 
 		public Date getCreatedAt() {
 			return createdAt;
 		}
 
+
+
 		public void setCreatedAt(Date createdAt) {
 			this.createdAt = createdAt;
 		}
+
+
 
 		public Date getUpdatedAt() {
 			return updatedAt;
 		}
 
+
+
 		public void setUpdatedAt(Date updatedAt) {
 			this.updatedAt = updatedAt;
 		}
 
-		public Producto getProducttwo() {
+
+
+		public Producto getProduct() {
 			return product;
 		}
 
-		public void setProducttwo(Producto producttwo) {
-			this.product = producttwo;
+
+
+		public void setProduct(Producto product) {
+			this.product = product;
 		}
 
-		public Categoria getCategorytwo() {
+
+
+		public Categoria getCategory() {
 			return category;
 		}
 
-		public void setCategorytwo(Categoria categorytwo) {
-			this.category = categorytwo;
+
+
+		public void setCategory(Categoria category) {
+			this.category = category;
 		}
+
+
 
 		@PrePersist
 		protected void onCreate() {
